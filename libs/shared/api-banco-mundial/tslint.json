@@ -1,0 +1,20 @@
+{
+  "extends": "../../../tslint.json",
+  "rules": {
+    "directive-selector": [
+      true,
+      "attribute",
+      "pcaApiBancoMundial",
+      "camelCase"
+    ],
+    "component-selector": [
+      true,
+      "element",
+      "pca-api-banco-mundial",
+      "kebab-case"
+    ]
+  },
+  "linterOptions": {
+    "exclude": ["!**/*"]
+  }
+}
