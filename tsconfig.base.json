@@ -16,7 +16,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@practica-curso-angular/shared/api-banco-mundial": [
+      "@practica-final-curso-angular-jsanchezlunia/shared/api-banco-mundial": [
         "libs/shared/api-banco-mundial/src/index.ts"
       ]
     }

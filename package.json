@@ -1,5 +1,5 @@
 {
-  "name": "practica-curso-angular",
+  "name": "practica-final-curso-angular-jsanchezlunia",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
@@ -7,11 +7,13 @@
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points",
     "nx": "nx",
     "start": "ng serve",
-    "start:explorar": "ng serve explorador-continentes --port=4201 -o",
+    "start:explorar": "ng serve explorador-continentes --port=4200 -o",
     "build": "ng build",
     "test": "ng test",
+    "test:explorar": "ng test explorador-continentes --watch --verbose",
     "lint": "nx workspace-lint && ng lint",
     "e2e": "ng e2e",
+    "e2e:explorar": "ng e2e explorador-continentes-e2e --watch",
     "affected:apps": "nx affected:apps",
     "affected:libs": "nx affected:libs",
     "affected:build": "nx affected:build",

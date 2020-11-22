@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { ListadoRegionesGeograficasComponent } from './listado-regiones-geograficas/listado-regiones-geograficas.component';
 import { RouterModule, Routes } from '@angular/router';
+import {BrowserModule} from '@angular/platform-browser';
 
 const routes: Routes = [
   {
     path: '',
-    component: ListadoRegionesGeograficasComponent,
+    loadChildren: () => import('./listado-regiones-geograficas/listado-regiones-geograficas.module').then(m => m.ListadoRegionesGeograficasModule),
   },
   {
     path: 'region',
@@ -17,7 +17,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule,
+    BrowserModule,
     RouterModule.forRoot(routes)
   ],
   exports: [

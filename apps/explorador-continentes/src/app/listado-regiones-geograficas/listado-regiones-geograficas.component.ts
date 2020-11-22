@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {
   RegionGeograficaContinentalInterface,
   RegionGeograficaContinentalService
-} from '@practica-curso-angular/shared/api-banco-mundial';
+} from '@practica-final-curso-angular-jsanchezlunia/shared/api-banco-mundial';
 
 @Component({
   selector: 'pca-explorador-continentes-listado-regiones-geograficas',
@@ -20,7 +20,7 @@ export class ListadoRegionesGeograficasComponent implements OnInit {
 
   private getData(): void {
     this.regionGeograficaContinentalService.getRegionesGeograficasContinentales()
-      .subscribe(listadoRegiones => {
+      .toPromise().then(listadoRegiones => {
         this.regiones = listadoRegiones[1].filter(region => region.id);
       });
   }
