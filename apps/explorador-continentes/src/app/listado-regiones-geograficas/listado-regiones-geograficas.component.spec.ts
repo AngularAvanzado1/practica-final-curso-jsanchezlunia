@@ -4,7 +4,7 @@ import {ListadoRegionesGeograficasComponent} from './listado-regiones-geografica
 import {RouterTestingModule} from '@angular/router/testing';
 import {HttpClientModule} from '@angular/common/http';
 import {RegionGeograficaContinentalService} from '@practica-final-curso-angular-jsanchezlunia/shared/api-banco-mundial';
-import {Observable, of} from 'rxjs';
+import {of} from 'rxjs';
 import {CommonModule} from '@angular/common';
 
 describe('GIVEN: an ListadoRegionesGeograficasComponent declared in ListadoRegionesGeograficasModule', () => {
