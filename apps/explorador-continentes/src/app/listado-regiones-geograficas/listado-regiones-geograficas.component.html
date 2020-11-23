@@ -1,6 +1,8 @@
 <h2>Listado de regiones geograficas identificadas</h2>
 <ul>
   <li *ngFor="let region of regiones">
-    {{region.id}} - {{region.code}} - {{region.name}}
+    <a routerLink="region/{{region.code}}">
+      {{region.id}} - {{region.code}} - {{region.name}}
+    </a>
   </li>
 </ul>

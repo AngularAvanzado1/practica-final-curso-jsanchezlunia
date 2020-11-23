@@ -1,13 +1,15 @@
-import { getGreeting } from '../support/app.po';
+import {getGreeting, visitHome} from '../support/app.po';
 
-describe('explorador-continentes', () => {
-  beforeEach(() => cy.visit('/'));
+describe('GIVEN: the explorador-continentes app', () => {
+  beforeEach(() => visitHome());
 
-  it('should display welcome message', () => {
-    // Custom command example, see `../support/commands.ts` file
-    cy.login('my-email@something.com', 'myPassword');
+  context('WHEN: user visits home page', () => {
+    it('THEN: should display welcome message', () => {
+      // Custom command example, see `../support/commands.ts` file
+      cy.login('my-email@something.com', 'myPassword');
 
-    // Function helper example, see `../support/app.po.ts` file
-    getGreeting().contains('Welcome to explorador-continentes!');
+      // Function helper example, see `../support/app.po.ts` file
+      getGreeting().contains('Welcome to explorador-continentes!');
+    });
   });
 });

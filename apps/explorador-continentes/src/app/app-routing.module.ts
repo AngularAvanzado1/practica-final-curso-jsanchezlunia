@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
-import { ListadoRegionesGeograficasComponent } from './listado-regiones-geograficas/listado-regiones-geograficas.component';
 import { RouterModule, Routes } from '@angular/router';
 import {BrowserModule} from '@angular/platform-browser';
+import {PaginaRegionComponent} from './pagina-region/pagina-region.component';
 
 const routes: Routes = [
   {
@@ -9,8 +9,8 @@ const routes: Routes = [
     loadChildren: () => import('./listado-regiones-geograficas/listado-regiones-geograficas.module').then(m => m.ListadoRegionesGeograficasModule),
   },
   {
-    path: 'region',
-    component: ListadoRegionesGeograficasComponent,
+    path: 'region/:code',
+    component: PaginaRegionComponent,
   }
 ];
 
