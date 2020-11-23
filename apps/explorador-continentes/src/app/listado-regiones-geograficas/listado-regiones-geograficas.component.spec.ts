@@ -1,11 +1,8 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {ListadoRegionesGeograficasComponent} from './listado-regiones-geograficas.component';
-import {RouterTestingModule} from '@angular/router/testing';
-import {HttpClientModule} from '@angular/common/http';
 import {RegionGeograficaContinentalService} from '@practica-final-curso-angular-jsanchezlunia/shared/api-banco-mundial';
 import {of} from 'rxjs';
-import {CommonModule} from '@angular/common';
 
 describe('GIVEN: an ListadoRegionesGeograficasComponent declared in ListadoRegionesGeograficasModule', () => {
   describe('WHEN: the ListadoRegionesGeograficasModule is compiled', () => {
@@ -15,7 +12,7 @@ describe('GIVEN: an ListadoRegionesGeograficasComponent declared in ListadoRegio
 
     beforeEach(async () => {
       await TestBed.configureTestingModule({
-        imports: [RouterTestingModule, HttpClientModule, CommonModule],
+        imports: [],
         declarations: [ListadoRegionesGeograficasComponent],
         providers: [
           {
@@ -66,6 +63,11 @@ describe('GIVEN: an ListadoRegionesGeograficasComponent declared in ListadoRegio
       fixture.whenStable().then(() => {
         expect(component.regiones).toHaveLength(3);
         expect(component.regiones.filter(region => !region.id)).toHaveLength(0);
+        expect(component.regiones).toEqual([
+          {id: "1", code: "EAS", iso2code: "Z4", name: "East Asia & Pacific"},
+          {id: "2", code: "ECS", iso2code: "Z7", name: "Europe & Central Asia"},
+          {id: "3", code: "LCN", iso2code: "ZJ", name: "Latin America & Caribbean "}
+        ]);
       });
     });
   });
