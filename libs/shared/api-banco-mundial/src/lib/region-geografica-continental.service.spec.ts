@@ -1,4 +1,4 @@
-import {async, TestBed} from '@angular/core/testing';
+import {TestBed, waitForAsync} from '@angular/core/testing';
 
 import {RegionGeograficaContinentalService} from './region-geografica-continental.service';
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
@@ -26,7 +26,7 @@ describe('GIVEN: a RegionGeograficaContinentalService', () => {
     });
 
     // Ojo al async para ejecutar las llamadas asíncronas
-    it(`THEN: should return expected values when call 'getRegionesGeograficasContinentales()'`, async (() => {
+    it(`THEN: should return expected values when call 'getRegionesGeograficasContinentales()'`, waitForAsync (() => {
       service.getRegionesGeograficasContinentales()
         .subscribe(result =>
           expect(result).toEqual([
