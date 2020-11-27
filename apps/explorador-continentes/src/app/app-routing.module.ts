@@ -1,7 +1,6 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {BrowserModule} from '@angular/platform-browser';
-import {PaginaRegionComponent} from './pagina-region/pagina-region.component';
 
 const routes: Routes = [
   {
@@ -10,7 +9,7 @@ const routes: Routes = [
   },
   {
     path: 'region/:code',
-    component: PaginaRegionComponent,
+    loadChildren: () => import('./listado-paises-region/listado-paises-region.module').then(m => m.ListadoPaisesRegionModule),
   }
 ];
 

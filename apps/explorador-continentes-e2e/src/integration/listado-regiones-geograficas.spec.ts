@@ -1,4 +1,10 @@
-import {clickRegion, getListadoRegiones, getTitle} from '../support/listado-regiones-geograficas.po';
+import {
+  clickRegion,
+  currentUrl,
+  getListadoRegiones,
+  getTitle,
+  getTitleNextPage
+} from '../support/listado-regiones-geograficas.po';
 import {visitHome} from '../support/app.po';
 
 describe('GIVEN: the home page', () => {
@@ -15,8 +21,8 @@ describe('GIVEN: the home page', () => {
     it('THEN: should navigate to region page', () => {
       clickRegion()
         .then(() => {
-          cy.location('pathname').should('contain', '/region/');
-          cy.contains('h2', 'Región').should('be.visible');
+          currentUrl().should('contain', '/region/');
+          getTitleNextPage().should('be.visible');
         });
     });
   });

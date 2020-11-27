@@ -1,0 +1,21 @@
+<a href="/">Volver</a>
+<h2>Región {{code}}</h2>
+<h3>Países:</h3>
+<table *ngIf="paisesRegion$ | async as paises">
+  <thead>
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Longitude</th>
+    <th>Latitude</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let pais of paises[1]">
+    <td>{{pais.id}}</td>
+    <td>{{pais.name}}</td>
+    <td>{{pais.longitude}}</td>
+    <td>{{pais.latitude}}</td>
+  </tr>
+  </tbody>
+</table>

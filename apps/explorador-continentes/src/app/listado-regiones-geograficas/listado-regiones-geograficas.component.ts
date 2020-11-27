@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {
   RegionGeograficaContinentalInterface,
   RegionGeograficaContinentalService
@@ -7,12 +7,13 @@ import {
 @Component({
   selector: 'pca-explorador-continentes-listado-regiones-geograficas',
   templateUrl: './listado-regiones-geograficas.component.html',
-  styles: [
-  ]
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  styles: []
 })
 export class ListadoRegionesGeograficasComponent implements OnInit {
-  public regiones: RegionGeograficaContinentalInterface[];
-  constructor(private regionGeograficaContinentalService: RegionGeograficaContinentalService) { }
+  public regiones$: RegionGeograficaContinentalInterface[];
+  constructor(private regionGeograficaContinentalService: RegionGeograficaContinentalService,
+              private cdr: ChangeDetectorRef) { }
 
   ngOnInit(): void {
     this.getData();
@@ -20,8 +21,9 @@ export class ListadoRegionesGeograficasComponent implements OnInit {
 
   private getData(): void {
     this.regionGeograficaContinentalService.getRegionesGeograficasContinentales()
-      .toPromise().then(listadoRegiones => {
-        this.regiones = listadoRegiones[1].filter(region => region.id);
-      });
+      .subscribe(listadoRegiones => {
+        this.regiones$ = listadoRegiones[1].filter(region => region.id);
+        this.cdr.detectChanges();
+      })
   }
 }

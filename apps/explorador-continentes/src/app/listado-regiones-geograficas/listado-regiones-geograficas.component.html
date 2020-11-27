@@ -1,5 +1,5 @@
 <h2>Listado de regiones geograficas identificadas</h2>
-<ul>
+<ul *ngIf="regiones$ as regiones">
   <li *ngFor="let region of regiones">
     <a routerLink="region/{{region.code}}">
       {{region.id}} - {{region.code}} - {{region.name}}
