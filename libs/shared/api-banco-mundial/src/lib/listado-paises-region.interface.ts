@@ -1,4 +1,4 @@
-import {InfoPageResultsInterface} from '@practica-final-curso-angular-jsanchezlunia/shared/api-banco-mundial';
+import {InfoPageResultsInterface} from './info-page-results.interface';
 import {PaisInterface} from './pais.interface';
 
 export interface ListadoPaisesRegionInterface {

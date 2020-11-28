@@ -2,7 +2,7 @@ import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@an
 import {
   RegionGeograficaContinentalInterface,
   RegionGeograficaContinentalService
-} from '@practica-final-curso-angular-jsanchezlunia/shared/api-banco-mundial';
+} from '@pca-jsanchez/shared/api-banco-mundial';
 
 @Component({
   selector: 'pca-explorador-continentes-listado-regiones-geograficas',

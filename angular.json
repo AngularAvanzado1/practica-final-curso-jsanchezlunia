@@ -157,6 +157,32 @@
         }
       },
       "schematics": {}
+    },
+    "regiones": {
+      "projectType": "library",
+      "root": "libs/regiones",
+      "sourceRoot": "libs/regiones/src",
+      "prefix": "pca-regiones",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/regiones/tsconfig.lib.json",
+              "libs/regiones/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/regiones/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/regiones/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
     }
   },
   "cli": {

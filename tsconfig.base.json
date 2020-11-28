@@ -16,8 +16,11 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@practica-final-curso-angular-jsanchezlunia/shared/api-banco-mundial": [
+      "@pca-jsanchez/shared/api-banco-mundial": [
         "libs/shared/api-banco-mundial/src/index.ts"
+      ],
+      "@pca-jsanchez/regiones": [
+        "libs/regiones/src/index.ts"
       ]
     }
   },

@@ -1,8 +1,7 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
-import {ListadoPaisesRegionInterface} from '@practica-final-curso-angular-jsanchezlunia/shared/api-banco-mundial';
-import {RegionGeograficaContinentalService} from '@practica-final-curso-angular-jsanchezlunia/shared/api-banco-mundial';
 import {ActivatedRoute} from '@angular/router';
+import {ListadoPaisesRegionInterface, RegionGeograficaContinentalService} from '@pca-jsanchez/shared/api-banco-mundial';
 
 @Component({
   selector: 'pca-explorador-continentes-listado-paises-region',

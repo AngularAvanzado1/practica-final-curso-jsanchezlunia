@@ -3,7 +3,7 @@ import {TestBed, waitForAsync} from '@angular/core/testing';
 import {RegionGeograficaContinentalService} from './region-geografica-continental.service';
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
 import {Observable} from 'rxjs';
-import {ListadoRegionesGeograficasInterface} from '@practica-final-curso-angular-jsanchezlunia/shared/api-banco-mundial';
+import {ListadoRegionesGeograficasInterface} from '@pca-jsanchez/shared/api-banco-mundial';
 
 describe('GIVEN: a RegionGeograficaContinentalService', () => {
   describe('WHEN: the ApiBancoMundialModule is compiled', () => {

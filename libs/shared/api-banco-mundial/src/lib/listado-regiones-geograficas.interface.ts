@@ -1,7 +1,5 @@
-import {
-  InfoPageResultsInterface,
-  RegionGeograficaContinentalInterface
-} from '@practica-final-curso-angular-jsanchezlunia/shared/api-banco-mundial';
+import {InfoPageResultsInterface} from './info-page-results.interface';
+import {RegionGeograficaContinentalInterface} from './region-geografica-continental.interface';
 
 export interface ListadoRegionesGeograficasInterface {
   infoPageResults: InfoPageResultsInterface;

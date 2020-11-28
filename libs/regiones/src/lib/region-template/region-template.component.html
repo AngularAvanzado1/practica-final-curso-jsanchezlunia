@@ -1,0 +1,11 @@
+<article style="border: 1px solid #454545; padding: 0 0 5px 5px; margin-bottom: 5pt">
+  <header style="margin-top: 5px; margin-bottom: 5px">
+    <b>{{region.name}}</b>
+  </header>
+  <main>
+    <ng-content select="main"></ng-content>
+  </main>
+  <footer style="margin-top: 5px">
+    <ng-content select=".actions"></ng-content>
+  </footer>
+</article>

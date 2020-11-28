@@ -1,5 +1,5 @@
 {
-  "npmScope": "practica-final-curso-angular-jsanchezlunia",
+  "npmScope": "pca-jsanchez",
   "affected": {
     "defaultBase": "master"
   },
@@ -31,6 +31,9 @@
       "implicitDependencies": ["explorador-continentes"]
     },
     "shared-api-banco-mundial": {
+      "tags": []
+    },
+    "regiones": {
       "tags": []
     }
   }

@@ -1,9 +1,9 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {ListadoRegionesGeograficasComponent} from './listado-regiones-geograficas.component';
-import {RegionGeograficaContinentalService} from '@practica-final-curso-angular-jsanchezlunia/shared/api-banco-mundial';
 import {of} from 'rxjs';
 import {RouterTestingModule} from '@angular/router/testing';
+import {RegionGeograficaContinentalService} from '@pca-jsanchez/shared/api-banco-mundial';
 
 describe('GIVEN: an ListadoRegionesGeograficasComponent declared in ListadoRegionesGeograficasModule', () => {
   describe('WHEN: the ListadoRegionesGeograficasModule is compiled', () => {

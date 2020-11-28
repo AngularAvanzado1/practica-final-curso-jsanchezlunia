@@ -1,0 +1,12 @@
+<pca-regiones-region-template [region]="region">
+  <main>
+    <div>
+      ID: {{region.id}} | <span [pcaRegionesUbicacionActual]="region.code">Code: {{region.code}}</span>
+    </div>
+  </main>
+  <nav class="actions">
+    <button routerLink="region/{{region.code}}" [pcaRegionesUbicacionActual]="region.code">
+      Ver países
+    </button>
+  </nav>
+</pca-regiones-region-template>
