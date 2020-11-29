@@ -8,6 +8,7 @@ import {
 import {visitHome} from '../support/app.po';
 
 describe('GIVEN: the home page', () => {
+
   beforeEach(() => visitHome());
   context('WHEN: user visits home page', () => {
     it('THEN: should display title', () => {

@@ -6,8 +6,7 @@ import {Directive, ElementRef, Input} from '@angular/core';
 export class UbicacionActualDirective {
   @Input()
   set pcaRegionesUbicacionActual(code: string) {
-    const color = code === 'ECS' ? '#ddd' : 'white';
-    this.el.nativeElement.style.backgroundColor = color;
+    this.el.nativeElement.style.backgroundColor = (code === 'ECS') ? '#b8d4fd' : 'white';
   }
   constructor(private el: ElementRef) { }
 }

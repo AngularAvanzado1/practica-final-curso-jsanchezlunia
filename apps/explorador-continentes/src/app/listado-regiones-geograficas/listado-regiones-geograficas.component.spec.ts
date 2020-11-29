@@ -4,6 +4,8 @@ import {ListadoRegionesGeograficasComponent} from './listado-regiones-geografica
 import {of} from 'rxjs';
 import {RouterTestingModule} from '@angular/router/testing';
 import {RegionGeograficaContinentalService} from '@pca-jsanchez/shared/api-banco-mundial';
+import {RegionComponent} from '../region/region.component';
+import {RegionesModule} from '@pca-jsanchez/regiones';
 
 describe('GIVEN: an ListadoRegionesGeograficasComponent declared in ListadoRegionesGeograficasModule', () => {
   describe('WHEN: the ListadoRegionesGeograficasModule is compiled', () => {
@@ -13,8 +15,8 @@ describe('GIVEN: an ListadoRegionesGeograficasComponent declared in ListadoRegio
 
     beforeEach(async () => {
       await TestBed.configureTestingModule({
-        imports: [RouterTestingModule],
-        declarations: [ListadoRegionesGeograficasComponent],
+        imports: [RouterTestingModule, RegionesModule],
+        declarations: [ListadoRegionesGeograficasComponent, RegionComponent],
         providers: [
           {
             provide: RegionGeograficaContinentalService, useValue: {
