@@ -1,0 +1,15 @@
+{
+  "getAllRegionesGeograficasContinentales": {
+    "0" : {
+      "page": "1", "pages": "1", "per_page": "50", "total": "48"
+    },
+    "1" : [
+      {"id": "", "code": "AFR", "iso2code": "A9", "name": "Africa"},
+      {"id": "", "code": "ANR", "iso2code": "L5", "name": "Andean Region"},
+      {"id": "", "code": "ARB", "iso2code": "1A", "name": "Arab World"},
+      {"id": "1", "code": "EAS", "iso2code": "Z4", "name": "East Asia & Pacific"},
+      {"id": "2", "code": "ECS", "iso2code": "Z7", "name": "Europe & Central Asia"},
+      {"id": "3", "code": "LCN", "iso2code": "ZJ", "name": "Latin America & Caribbean "}
+    ]
+  }
+}

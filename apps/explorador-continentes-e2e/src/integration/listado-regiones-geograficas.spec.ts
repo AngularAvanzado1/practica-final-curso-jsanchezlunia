@@ -6,19 +6,27 @@ import {
   getTitleNextPage
 } from '../support/listado-regiones-geograficas.po';
 import {visitHome} from '../support/app.po';
+import * as regionesMock from '../support/mocks/regionesMocks';
 
 describe('GIVEN: the home page', () => {
 
-  beforeEach(() => visitHome());
+  beforeEach(() => {
+    cy.server();
+    cy.fixture('regiones_continentales_mock.json').then(rc => {
+      regionesMock.getRegionesGeograficasContinentales(rc.getAllRegionesGeograficasContinentales)
+    });
+    visitHome();
+    cy.wait('@getRegionesGeograficasContinentales');
+  });
   context('WHEN: user visits home page', () => {
     it('THEN: should display title', () => {
       getTitle().contains('Listado de regiones geograficas identificadas');
     });
     it('THEN: should list regiones', () => {
-      getListadoRegiones().should('have.length', 7);
+      getListadoRegiones().should('have.length', 3);
     });
   });
-  context('WHEN: user click on some region', () => {
+  context('WHEN: user clicks on some region', () => {
     it('THEN: should navigate to region page', () => {
       clickRegion()
         .then(() => {
