@@ -3,20 +3,16 @@ import {
   currentUrl,
   getListadoRegiones,
   getTitle,
-  getTitleNextPage
+  getTitleNextPage, startAPIServer, waitAPIServerResponse
 } from '../support/listado-regiones-geograficas.po';
 import {visitHome} from '../support/app.po';
-import * as regionesMock from '../support/mocks/regionesMocks';
 
 describe('GIVEN: the home page', () => {
 
   beforeEach(() => {
-    cy.server();
-    cy.fixture('regiones_continentales_mock.json').then(rc => {
-      regionesMock.getRegionesGeograficasContinentales(rc.getAllRegionesGeograficasContinentales)
-    });
+    startAPIServer();
     visitHome();
-    cy.wait('@getRegionesGeograficasContinentales');
+    waitAPIServerResponse();
   });
   context('WHEN: user visits home page', () => {
     it('THEN: should display title', () => {
