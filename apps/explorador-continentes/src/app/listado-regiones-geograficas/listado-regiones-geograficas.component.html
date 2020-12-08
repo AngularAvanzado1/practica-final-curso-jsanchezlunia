@@ -1,5 +1,5 @@
 <h2>Listado de regiones geograficas identificadas</h2>
-<section *ngIf="regiones$ as regiones">
+<section *ngIf="regiones$ | async as regiones">
     <pca-explorador-continentes-region *ngFor="let region of regiones"
                                        [region]="region"></pca-explorador-continentes-region>
 </section>

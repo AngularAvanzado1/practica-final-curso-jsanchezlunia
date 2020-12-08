@@ -4,6 +4,7 @@ import {ListadoRegionesGeograficasComponent} from './listado-regiones-geografica
 import {RouterModule} from '@angular/router';
 import {RegionComponent} from '../region/region.component';
 import {RegionesModule} from '@pca-jsanchez/regiones';
+import { RegionModule } from '../region/region.module';
 import {ApiBancoMundialModule} from '../../../../../libs/shared/api-banco-mundial/src';
 
 @NgModule({
@@ -17,7 +18,8 @@ import {ApiBancoMundialModule} from '../../../../../libs/shared/api-banco-mundia
       }
     ]),
     ApiBancoMundialModule,
-    RegionesModule
+    RegionesModule,
+    RegionModule
   ]
 })
 export class ListadoRegionesGeograficasModule { }

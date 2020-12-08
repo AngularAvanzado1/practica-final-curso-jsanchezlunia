@@ -1,7 +1,7 @@
-<a href="/">Volver</a>
+<a routerLink="/">Volver</a>
 <h2>Región {{code}}</h2>
 <h3>Países:</h3>
-<table *ngIf="paisesRegion$ | async as paises">
+<table *ngIf="listadoPaisesRegion$ | async as listadoPaises">
   <thead>
   <tr>
     <th>Id</th>
@@ -11,7 +11,7 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let pais of paises[1]">
+  <tr *ngFor="let pais of listadoPaises.paises">
     <td>{{pais.id}}</td>
     <td>{{pais.name}}</td>
     <td>{{pais.longitude}}</td>

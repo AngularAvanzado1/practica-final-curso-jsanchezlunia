@@ -3,7 +3,6 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RegionComponent } from './region.component';
 import {RegionesModule} from '@pca-jsanchez/regiones';
 import {RouterTestingModule} from '@angular/router/testing';
-import {RegionGeograficaContinentalInterface} from '@pca-jsanchez/shared/api-banco-mundial';
 
 describe('RegionComponent', () => {
   let component: RegionComponent;
