@@ -23,7 +23,8 @@
             "aot": true,
             "assets": [
               "apps/explorador-continentes/src/favicon.ico",
-              "apps/explorador-continentes/src/assets"
+              "apps/explorador-continentes/src/assets",
+              "apps/explorador-continentes/src/manifest.webmanifest"
             ],
             "styles": ["apps/explorador-continentes/src/styles.css"],
             "scripts": []
@@ -55,7 +56,9 @@
                   "maximumWarning": "6kb",
                   "maximumError": "10kb"
                 }
-              ]
+              ],
+              "serviceWorker": true,
+              "ngswConfigPath": "apps/explorador-continentes/ngsw-config.json"
             }
           }
         },
