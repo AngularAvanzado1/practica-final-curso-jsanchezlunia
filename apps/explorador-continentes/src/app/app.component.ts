@@ -17,7 +17,7 @@ export class AppComponent {
 
   private checkVersionUpdates() {
     if (this.swUpdate.isEnabled) {
-      this.swUpdate.checkForUpdate().then(data => console.log(data));
+      // this.swUpdate.checkForUpdate().then(data => console.log(data));
       this.swUpdate.available.subscribe(event => {
         if (event.current.appData) {
           const appData: any = event.current.appData;
