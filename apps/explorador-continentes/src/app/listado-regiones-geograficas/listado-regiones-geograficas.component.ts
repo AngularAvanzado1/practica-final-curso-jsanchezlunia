@@ -5,6 +5,7 @@ import {
 } from '@pca-jsanchez/shared/api-banco-mundial';
 import {RegionesFacade} from '../region/store/regiones/regiones.service';
 import {Observable} from 'rxjs';
+import {environment} from '../../environments/environment';
 
 @Component({
   selector: 'pca-explorador-continentes-listado-regiones-geograficas',
@@ -15,6 +16,7 @@ import {Observable} from 'rxjs';
 export class ListadoRegionesGeograficasComponent implements OnInit {
  // public regiones$: RegionGeograficaContinentalInterface[];
   public regiones$: Observable<RegionGeograficaContinentalInterface[]>;
+  public currentDate = Date.now();
   constructor(/*private regionGeograficaContinentalService: RegionGeograficaContinentalService,
               private cdr: ChangeDetectorRef,*/
               private regionesFacade: RegionesFacade) { }
@@ -33,5 +35,9 @@ export class ListadoRegionesGeograficasComponent implements OnInit {
         this.regiones$ = listadoRegiones[1].filter(region => region.id);
         this.cdr.detectChanges();
       });*/
+  }
+
+  public showCurrentDate(): boolean {
+    return environment.showCurrentDate;
   }
 }

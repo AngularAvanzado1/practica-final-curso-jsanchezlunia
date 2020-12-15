@@ -51,9 +51,9 @@ describe('GIVEN: an ListadoRegionesGeograficasComponent declared in ListadoRegio
       expect(component).toBeTruthy();
     });
 
-    it("THEN: should render 'Listado de regiones geograficas identificadas' in a H2 tag", () => {
+    it("THEN: should render 'List of identified geographic regions' in a H2 tag", () => {
       const compiled = fixture.debugElement.nativeElement;
-      expect(compiled.querySelector('h2').textContent).toContain('Listado de regiones geograficas identificadas');
+      expect(compiled.querySelector('h2').textContent).toContain('List of identified geographic regions');
     });
 
     it('THEN: should call ngOnInit and fill regiones with id', () => {

@@ -1,4 +1,4 @@
-import {createReducer, on} from '@ngrx/store';
+import {Action, createReducer, on} from '@ngrx/store';
 import * as RegionesActions from './regiones.actions';
 import {
   ListadoPaisesRegionInterface,
@@ -23,7 +23,7 @@ export const initialState: State = {
 };
 
 
-export const reducer = createReducer(
+export const regionesReducer = createReducer(
   initialState,
 
   // Regiones Actions
@@ -57,4 +57,8 @@ export const reducer = createReducer(
   ),
   on(RegionesActions.loadPaisesRegionFailure, (state, action) => state),
 );
+
+export function reducer(state: State | undefined, action: Action) {
+  return regionesReducer(state, action);
+}
 

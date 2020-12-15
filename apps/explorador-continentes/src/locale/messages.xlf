@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="de0dac7188ab04270cfc534db751465ca525b05e" datatype="html">
+        <source>Welcome to <x id="INTERPOLATION" equiv-text="{{ title }}"/>!</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cf8695466cf32a146a717bd5e2a5ce347e8a786f" datatype="html">
+        <source>List of identified geographic regions</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/listado-regiones-geograficas/listado-regiones-geograficas.component.html</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="62b5f992043a59263854a4ac4597a775b79b70b1" datatype="html">
+        <source>
+      Show countries
+    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/region/region.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cda31dbd724cf5f4fa7a4274d9120651490c8a8c" datatype="html">
+        <source>Back</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/listado-paises-region/listado-paises-region.component.html</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ad8680922df788e90206e9066402669198d04883" datatype="html">
+        <source>Region <x id="INTERPOLATION" equiv-text="{{code}}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/listado-paises-region/listado-paises-region.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cc636d7db99a80f962d9926c3253f9c4c2647d2b" datatype="html">
+        <source>Countries:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/listado-paises-region/listado-paises-region.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

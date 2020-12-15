@@ -1,6 +1,6 @@
-<a routerLink="/">Volver</a>
-<h2>Región {{code}}</h2>
-<h3>Países:</h3>
+<a routerLink="/" i18n>Back</a>
+<h2 i18n>Region {{code}}</h2>
+<h3 i18n>Countries:</h3>
 <table *ngIf="listadoPaisesRegion$ | async as listadoPaises">
   <thead>
   <tr>

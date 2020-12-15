@@ -1,4 +1,5 @@
-<h2>Listado de regiones geograficas identificadas</h2>
+<h2 i18n>List of identified geographic regions</h2>
+<h4 *ngIf="showCurrentDate()">{{currentDate | date:'long'}}</h4>
 <section *ngIf="regiones$ | async as regiones">
     <pca-explorador-continentes-region *ngFor="let region of regiones"
                                        [region]="region"></pca-explorador-continentes-region>

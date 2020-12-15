@@ -16,7 +16,7 @@ describe('GIVEN: the home page', () => {
   });
   context('WHEN: user visits home page', () => {
     it('THEN: should display title', () => {
-      getTitle().contains('Listado de regiones geograficas identificadas');
+      getTitle().contains('List of identified geographic regions');
     });
     it('THEN: should list regiones', () => {
       getListadoRegiones().should('have.length', 3);

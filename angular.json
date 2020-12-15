@@ -59,6 +59,19 @@
               ],
               "serviceWorker": true,
               "ngswConfigPath": "apps/explorador-continentes/ngsw-config.json"
+            },
+            "production-es": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/explorador-continentes/src/environments/environment.ts",
+                  "with": "apps/explorador-continentes/src/environments/environment.prod.es.ts"
+                }
+              ],
+              "outputPath": "dist/apps/explorador-continentes/es",
+              "i18nFile": "apps/explorador-continentes/src/locale/messages.es.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "es",
+              "baseHref": "es"
             }
           }
         },
