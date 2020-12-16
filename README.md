@@ -61,7 +61,7 @@ Explorar la información abierta y disponible en el [API del Banco Mundial](http
 
 - Una landing page _SEO friendly_ generada con **_SSR_** que muestre la lista de continentes.
 
-- Un _**WebComponent**_ con datos de un según su código. `<wbde-country id="ESP"></wbde-country>`
+- Un _**WebComponent**_ con datos de un según su código. `<country id="ESP"></country>`
 
 - Una aplicación web estándar (sin Angular) que use el anterior componente.
 

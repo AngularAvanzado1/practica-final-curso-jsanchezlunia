@@ -1,0 +1,11 @@
+<div *ngIf="country">
+  <p>Id: {{country.id}}</p>
+  <p>Name: {{country.name}}</p>
+  <p>iso2Code: {{country.iso2Code}}</p>
+  <p>Longitude: {{country.longitude}}</p>
+  <p>Latitude: {{country.latitude}}</p>
+  <p>Capital city: {{country.capitalCity}}</p>
+  <p>adminregion: {{country.adminregion | json}}</p>
+  <p>incomeLevel: {{country.incomeLevel | json}}</p>
+  <p>lendingType: {{country.lendingType | json}}</p>
+</div>

@@ -10,6 +10,10 @@ const routes: Routes = [
   {
     path: 'region/:code',
     loadChildren: () => import('./listado-paises-region/listado-paises-region.module').then(m => m.ListadoPaisesRegionModule),
+  },
+  {
+    path: 'country/:id',
+    loadChildren: () => import('./ficha-pais/ficha-pais.module').then(m => m.FichaPaisModule)
   }
 ];
 

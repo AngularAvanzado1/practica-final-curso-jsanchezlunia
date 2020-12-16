@@ -35,6 +35,16 @@
     },
     "regiones": {
       "tags": []
+    },
+    "country": {
+      "tags": []
+    },
+    "wbde-country": {
+      "tags": []
+    },
+    "wbde-country-e2e": {
+      "tags": [],
+      "implicitDependencies": ["wbde-country"]
     }
   }
 }

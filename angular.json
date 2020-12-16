@@ -26,7 +26,9 @@
               "apps/explorador-continentes/src/assets",
               "apps/explorador-continentes/src/manifest.webmanifest"
             ],
-            "styles": ["apps/explorador-continentes/src/styles.css"],
+            "styles": [
+              "apps/explorador-continentes/src/styles.css"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -136,7 +138,9 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/explorador-continentes-e2e/tsconfig.e2e.json"],
+            "tsConfig": [
+              "apps/explorador-continentes-e2e/tsconfig.e2e.json"
+            ],
             "exclude": [
               "**/node_modules/**",
               "!apps/explorador-continentes-e2e/**/*"
@@ -187,7 +191,10 @@
               "libs/regiones/tsconfig.lib.json",
               "libs/regiones/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/regiones/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/regiones/**/*"
+            ]
           }
         },
         "test": {
@@ -199,6 +206,172 @@
         }
       },
       "schematics": {}
+    },
+    "country": {
+      "projectType": "library",
+      "root": "libs/country",
+      "sourceRoot": "libs/country/src",
+      "prefix": "",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/country/tsconfig.lib.json",
+              "libs/country/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/country/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/country/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "wbde-country": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "apps/wbde-country",
+      "sourceRoot": "apps/wbde-country/src",
+      "prefix": "pca-jsanchez",
+      "architect": {
+        "build": {
+          "builder": "ngx-build-plus:browser",
+          "options": {
+            "outputPath": "dist/apps/wbde-country",
+            "index": "apps/wbde-country/src/index.html",
+            "main": "apps/wbde-country/src/main.ts",
+            "polyfills": "apps/wbde-country/src/polyfills.ts",
+            "tsConfig": "apps/wbde-country/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/wbde-country/src/favicon.ico",
+              "apps/wbde-country/src/assets"
+            ],
+            "styles": [
+              "apps/wbde-country/src/styles.css"
+            ],
+            "scripts": [
+              {
+                "bundleName": "polyfill-webcomp-es5",
+                "input": "node_modules/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js"
+              },
+              {
+                "bundleName": "polyfill-webcomp",
+                "input": "node_modules/@webcomponents/webcomponentsjs/bundles/webcomponents-sd-ce-pf.js"
+              }
+            ]
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/wbde-country/src/environments/environment.ts",
+                  "with": "apps/wbde-country/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "none",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "ngx-build-plus:dev-server",
+          "options": {
+            "browserTarget": "wbde-country:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "wbde-country:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "wbde-country:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/wbde-country/tsconfig.app.json",
+              "apps/wbde-country/tsconfig.spec.json",
+              "apps/wbde-country/tsconfig.editor.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/wbde-country/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "ngx-build-plus:karma",
+          "options": {
+            "jestConfig": "apps/wbde-country/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "wbde-country-e2e": {
+      "root": "apps/wbde-country-e2e",
+      "sourceRoot": "apps/wbde-country-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/wbde-country-e2e/cypress.json",
+            "tsConfig": "apps/wbde-country-e2e/tsconfig.e2e.json",
+            "devServerTarget": "wbde-country:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "wbde-country:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/wbde-country-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/wbde-country-e2e/**/*"
+            ]
+          }
+        }
+      }
     }
   },
   "cli": {

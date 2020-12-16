@@ -5,8 +5,12 @@ export interface PaisInterface {
   longitude: string;
   latitude: string;
   capitalCity: string;
-  region: {};
-  adminRegion: {};
-  incimeLevel: {};
+  region: {
+    id: string,
+    iso2code: string,
+    value: string
+  };
+  adminregion: {};
+  incomeLevel: {};
   lendingType: {};
 }

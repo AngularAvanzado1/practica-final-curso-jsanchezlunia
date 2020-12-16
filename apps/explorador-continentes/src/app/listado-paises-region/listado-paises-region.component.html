@@ -1,21 +1,19 @@
 <a routerLink="/" i18n>Back</a>
 <h2 i18n>Region {{code}}</h2>
 <h3 i18n>Countries:</h3>
-<table *ngIf="listadoPaisesRegion$ | async as listadoPaises">
+<table *ngIf="listadoPaisesRegion$ | async as listadoPaises" border="1">
   <thead>
   <tr>
     <th>Id</th>
     <th>Name</th>
-    <th>Longitude</th>
-    <th>Latitude</th>
+    <th></th>
   </tr>
   </thead>
   <tbody>
   <tr *ngFor="let pais of listadoPaises.paises">
     <td>{{pais.id}}</td>
     <td>{{pais.name}}</td>
-    <td>{{pais.longitude}}</td>
-    <td>{{pais.latitude}}</td>
+    <td><button routerLink="/country/{{pais.id}}">Ver ficha</button></td>
   </tr>
   </tbody>
 </table>
