@@ -6,9 +6,11 @@
 </head>
 <body>
     <h4>This is an standar web application (without Angular) that uses de Angular web compoment "wbde-country"</h4>
-    <h2>Country:</h2>
+    <label for="country_id">Country:</label>
+    <input type="text" name="country_id" id="country_id" value="ESP" minlength="3" maxlength="3"/>
+    <button onclick="changeCountry()">Change country</button>
     <wbde-country id="ESP"></wbde-country>
-    <script src="main.js"
-            defer></script>
+    <script src="main.js" defer></script>
+    <script src="change-country.js"></script>
 </body>
 </html>
