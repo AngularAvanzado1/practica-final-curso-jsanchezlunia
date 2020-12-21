@@ -25,4 +25,3 @@ A continuación algunas aclaraciones sobre algunos de los puntos, por si sirve d
 - Revisar Container Presenter
 - Revisar Redux
 - Revisar testing con Redux
-- Traducción de textos
