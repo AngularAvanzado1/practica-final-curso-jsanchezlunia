@@ -1,18 +1,32 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {SwPush, SwUpdate} from '@angular/service-worker';
+import {Meta, Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'pca-explorador-continentes-root',
   templateUrl: './app.component.html',
   styles: [],
 })
-export class AppComponent {
-  title = 'explorador-continentes';
+export class AppComponent implements OnInit {
+
+  public siteName = 'Continental geographic region explorer';
 
   constructor(private swUpdate: SwUpdate,
-              private swPush: SwPush) {
+              private swPush: SwPush,
+              public title: Title,
+              private meta: Meta) {
     this.checkVersionUpdates();
     // this.subscribeToNotifications();
+  }
+
+  ngOnInit(): void {
+    this.title.setTitle(this.siteName);
+    this.meta.addTag({property: 'og:title', content: this.siteName}, true);
+    this.meta.addTag({property: 'og:description', content: 'Landing page SEO friendly generada con SSR que muestra la lista de continentes'}, true);
+    this.meta.addTag({property: 'og:locale', content: 'en_US'}, true);
+    this.meta.addTag({property: 'og:type', content: 'website'}, true);
+    // this.meta.addTag({property: 'og:image', content: ''}, true);
+    // this.meta.addTag({property: 'og:url', content: ''}, true);
   }
 
   private checkVersionUpdates() {

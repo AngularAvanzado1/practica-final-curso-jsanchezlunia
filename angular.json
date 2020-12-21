@@ -15,7 +15,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/apps/explorador-continentes",
+            "outputPath": "dist/explorador-continentes/browser",
             "index": "apps/explorador-continentes/src/index.html",
             "main": "apps/explorador-continentes/src/main.ts",
             "polyfills": "apps/explorador-continentes/src/polyfills.ts",
@@ -100,7 +100,8 @@
             "tsConfig": [
               "apps/explorador-continentes/tsconfig.app.json",
               "apps/explorador-continentes/tsconfig.spec.json",
-              "apps/explorador-continentes/tsconfig.editor.json"
+              "apps/explorador-continentes/tsconfig.editor.json",
+              "apps/explorador-continentes/tsconfig.server.json"
             ],
             "exclude": [
               "**/node_modules/**",
@@ -113,6 +114,53 @@
           "options": {
             "jestConfig": "apps/explorador-continentes/jest.config.js",
             "passWithNoTests": true
+          }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/explorador-continentes/server",
+            "main": "apps/explorador-continentes/server.ts",
+            "tsConfig": "apps/explorador-continentes/tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media",
+              "fileReplacements": [
+                {
+                  "replace": "apps/explorador-continentes/src/environments/environment.ts",
+                  "with": "apps/explorador-continentes/src/environments/environment.prod.ts"
+                }
+              ],
+              "sourceMap": false,
+              "optimization": true
+            }
+          }
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "options": {
+            "browserTarget": "explorador-continentes:build",
+            "serverTarget": "explorador-continentes:server"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "explorador-continentes:build:production",
+              "serverTarget": "explorador-continentes:server:production"
+            }
+          }
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "browserTarget": "explorador-continentes:build:production",
+            "serverTarget": "explorador-continentes:server:production",
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {}
           }
         }
       }
