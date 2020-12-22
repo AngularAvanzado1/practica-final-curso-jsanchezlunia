@@ -11,6 +11,11 @@ export const getRegionesList = createSelector(
   (state: State) => state.regiones
 )
 
+export const getRegion = createSelector(
+  selectRegionesState,
+  (state: State) => state.region
+)
+
 export const getListadoPaises = createSelector(
   selectRegionesState,
   (state: State) => state.listadoPaises

@@ -1,19 +1,8 @@
 <a routerLink="/" i18n>Back</a>
-<h2 i18n>Region {{code}}</h2>
+<h2 i18n>Region <span *ngIf="region$ | async as region">{{region.name}}</span> ({{code}})</h2>
 <h3 i18n>Countries:</h3>
-<table *ngIf="listadoPaisesRegion$ | async as listadoPaises" border="1">
-  <thead>
-  <tr>
-    <th>Id</th>
-    <th>Name</th>
-    <th></th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let pais of listadoPaises.paises">
-    <td>{{pais.id}}</td>
-    <td>{{pais.name}}</td>
-    <td><button routerLink="/country/{{pais.id}}" i18n>Show country sheet</button></td>
-  </tr>
-  </tbody>
-</table>
+<ul *ngIf="listadoPaisesRegion$ | async as listadoPaises">
+  <li *ngFor="let pais of listadoPaises">
+    <pca-explorador-continentes-elemento-listado-paises [pais]="pais"></pca-explorador-continentes-elemento-listado-paises>
+  </li>
+</ul>

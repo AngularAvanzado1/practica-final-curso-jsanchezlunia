@@ -24,4 +24,12 @@ export class RegionesFacade {
   public getRegionCode() {
     return this.state.getValue().regiones.code;
   }
+
+  public loadRegion(code: string) {
+    this.store.dispatch(RegionesActions.loadRegion({code}));
+  }
+
+  public getRegion$(): Observable<RegionGeograficaContinentalInterface> {
+    return this.store.select(RegionesSelectors.getRegion);
+  }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {RegionesFacade} from '../region/store/regiones/regiones.service';
 import {Observable} from 'rxjs';
@@ -6,8 +6,8 @@ import {Observable} from 'rxjs';
 @Component({
   selector: 'pca-explorador-continentes-ficha-pais',
   templateUrl: './ficha-pais.component.html',
-  styles: [
-  ]
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  styles: []
 })
 export class FichaPaisComponent implements OnInit {
 

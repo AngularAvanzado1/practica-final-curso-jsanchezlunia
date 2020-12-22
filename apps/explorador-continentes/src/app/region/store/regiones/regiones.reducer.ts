@@ -1,7 +1,7 @@
 import {Action, createReducer, on} from '@ngrx/store';
 import * as RegionesActions from './regiones.actions';
 import {
-  ListadoPaisesRegionInterface,
+  ListadoPaisesRegionInterface, PaisInterface,
   RegionGeograficaContinentalInterface
 } from '@pca-jsanchez/shared/api-banco-mundial';
 
@@ -10,16 +10,15 @@ export const regionesFeatureKey = 'regiones';
 export interface State {
   regiones: RegionGeograficaContinentalInterface[],
   code: string,
-  listadoPaises: ListadoPaisesRegionInterface
+  region: RegionGeograficaContinentalInterface,
+  listadoPaises: PaisInterface[]
 }
 
 export const initialState: State = {
   regiones: [],
   code: '',
-  listadoPaises: {
-    infoPageResults: {page: 0, pages: 0, per_page: 0, total: 0,},
-    paises: []
-  }
+  region: null,
+  listadoPaises: []
 };
 
 
@@ -38,6 +37,16 @@ export const regionesReducer = createReducer(
   ),
   on(RegionesActions.loadRegionesFailure, (state, action) => state),
 
+  on(RegionesActions.loadRegion, state => state),
+  on(RegionesActions.loadRegionSuccess,
+    (state, {region}) => {
+    return {
+      ...state,
+      region: {...region}
+    }}
+  ),
+  on(RegionesActions.loadRegionFailure, (state, action) => state),
+
   // Países Actions
   on(RegionesActions.loadPaisesRegion,
     (state, {code}) => {
@@ -51,7 +60,7 @@ export const regionesReducer = createReducer(
     (state, {listadoPaises}) => {
       return {
         ...state,
-        listadoPaises: { infoPageResults: listadoPaises[0], paises: listadoPaises[1] }
+        listadoPaises: [...listadoPaises]
       }
     }
   ),

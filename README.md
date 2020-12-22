@@ -6,10 +6,13 @@ La práctica realizada aborda todos los requisitos, tanto funcionales como no fu
 A continuación algunas aclaraciones sobre algunos de los puntos, por si sirve de ayuda para su localización en el proyecto y su comprensión.
 
 - Utilizado patrón _Container Presenter_:
-    - Container: _ListadoRegionesGeograficasComponent_
-    - Presenter: _RegionComponent_ (componente presentador para cada una de las regiones del listado)
+    - Container: _ListadoRegionesGeograficasComponent_ (componente smart con acceso a servicio de carga de datos)
+    - Presenter: _RegionComponent_ (componente presentador dumb que recibe los datos para cada una de las regiones del listado)
     
-- Utilizado el sistema de directivas:
+    - Container: _ListadoPaisesRegionComponent_ (componente smart con acceso a servicio de carga de datos)
+    - Presenter: _ElementoListadoPaisesComponent_ (componente presentador que recibe los datos para cada uno de los países del listado)
+    
+- Utilizado atributo custom mediante directivas:
     - `[pcaRegionesUbicacionActual]`, que pinta el background del elemento HTML de otro color si la región continental corresponde a nuestra ubicación actual. La ubicación actual ahora mismo es Europa "a piñón", pero quedaría delegado a esta directiva implementar una funcionalidad más avanzada y que por ejemplo contraste con la ubicación real.  
 
 - _**WebComponent**_ `<wbde-country>` generado basado en el componente `<country>`.
@@ -22,6 +25,5 @@ A continuación algunas aclaraciones sobre algunos de los puntos, por si sirve d
     
 ## Pendiente
 
-- Revisar Container Presenter
 - Revisar Redux
 - Revisar testing con Redux

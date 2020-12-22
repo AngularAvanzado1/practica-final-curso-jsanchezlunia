@@ -16,7 +16,7 @@ export class PaisesFacade {
     this.store.dispatch(PaisesActions.loadPaisesRegion({code}))
   }
 
-  public getListadoPaises$(): Observable<ListadoPaisesRegionInterface> {
+  public getListadoPaises$(): Observable<PaisInterface[]> {
     return this.store.select(PaisesSelectors.getListadoPaises);
   }
 }

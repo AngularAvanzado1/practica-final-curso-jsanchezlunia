@@ -1,0 +1,8 @@
+<pca-regiones-pais-template [pais]="pais">
+  <span class="main">
+    <a routerLink="/country/{{pais.id}}">{{pais.id}} - {{pais.name}}</a>
+  </span>
+  <span class="actions">
+    <button routerLink="/country/{{pais.id}}" i18n>Show country sheet</button>
+  </span>
+</pca-regiones-pais-template>

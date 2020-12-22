@@ -1,9 +1,10 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {Injector, NgModule} from '@angular/core';
 import {CountryComponent, CountryModule} from '@pca-jsanchez/country';
+import {HttpClientModule} from '@angular/common/http';
 import {createCustomElement} from '@angular/elements';
 import 'zone.js';
-import {HttpClientModule} from '@angular/common/http';
+import '@angular/localize/init';
 
 @NgModule({
   imports: [BrowserModule, HttpClientModule, CountryModule],

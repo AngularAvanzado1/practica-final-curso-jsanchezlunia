@@ -19,13 +19,26 @@ export class RegionesEffects {
         this.regionGeograficaContinentalService.getRegionesGeograficasContinentales()
           .pipe(
             map(listadoRegiones => RegionesActions.loadRegionesSuccess({
-              regiones: listadoRegiones[1].filter(region => region.id)
+              regiones: listadoRegiones.regionesGeograficasContinentales
             })),
             catchError(error => of(RegionesActions.loadRegionesFailure({ error })))
           )
       )
     );
   });
+
+  $loadRegion = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(RegionesActions.loadRegion),
+      concatMap(({code}) =>
+        this.regionGeograficaContinentalService.getRegionInfo(code)
+          .pipe(
+            map(region => RegionesActions.loadRegionSuccess({region})),
+            catchError(error => of(RegionesActions.loadRegionFailure({ error })))
+          )
+      )
+    )
+  })
 
   $loadPaisesRegion = createEffect(() => {
     return this.actions$.pipe(
@@ -35,7 +48,9 @@ export class RegionesEffects {
         {
           return this.regionGeograficaContinentalService.getPaisesRegion(code)
             .pipe(
-              map(listadoPaises => RegionesActions.loadPaisesRegionSuccess({ listadoPaises })),
+              map(listadoPaises => RegionesActions.loadPaisesRegionSuccess({
+                listadoPaises: listadoPaises.paises
+              })),
               catchError(error => of(RegionesActions.loadPaisesRegionFailure({ error })))
             )
         }
