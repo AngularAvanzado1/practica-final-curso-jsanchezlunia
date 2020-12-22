@@ -9,14 +9,12 @@ export const regionesFeatureKey = 'regiones';
 
 export interface State {
   regiones: RegionGeograficaContinentalInterface[],
-  code: string,
   region: RegionGeograficaContinentalInterface,
   listadoPaises: PaisInterface[]
 }
 
 export const initialState: State = {
   regiones: [],
-  code: '',
   region: null,
   listadoPaises: []
 };
@@ -48,14 +46,7 @@ export const regionesReducer = createReducer(
   on(RegionesActions.loadRegionFailure, (state, action) => state),
 
   // Países Actions
-  on(RegionesActions.loadPaisesRegion,
-    (state, {code}) => {
-      return {
-        ...state,
-        code: code
-      }
-    }
-  ),
+  on(RegionesActions.loadPaisesRegion,state => state),
   on(RegionesActions.loadPaisesRegionSuccess,
     (state, {listadoPaises}) => {
       return {

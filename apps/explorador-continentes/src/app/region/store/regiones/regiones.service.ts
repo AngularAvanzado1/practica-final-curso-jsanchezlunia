@@ -22,7 +22,7 @@ export class RegionesFacade {
   }
 
   public getRegionCode() {
-    return this.state.getValue().regiones.code;
+    return this.state.getValue().regiones.region.code;
   }
 
   public loadRegion(code: string) {

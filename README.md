@@ -18,7 +18,7 @@ A continuación algunas aclaraciones sobre algunos de los puntos, por si sirve d
 - _**WebComponent**_ `<wbde-country>` generado basado en el componente `<country>`.
 
 - Aplicación web estándar (sin Angular) que utiliza el WebComponent `<wbde-country id="ESP"></wbde-country>`:
-    - _vanilla_. Contiene además un input field para introducir otro código de país y un pequeño JavaScript para darle vida a esta aplicación estándar para que permita cambiar de país al clicar un botón, pasándole al `id` del WebComponent el código de país introducido en el input.
+    - _vanilla_. Contiene además un input field para introducir otro código de país y un pequeño JavaScript para darle vida a esta aplicación estándar para que permita cambiar de país al clicar un en botón, pasándole al `id` del WebComponent el código de país introducido en el input.
     
 - Landing page _SEO friendly_ generada con **_SSR_** que muestre la lista de continentes:
     - script `start:ssr`.
