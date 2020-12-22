@@ -19,7 +19,7 @@ import {RegionesFacade} from '../region/store/regiones/regiones.service';
 })
 export class ListadoPaisesRegionComponent implements OnInit {
 
-  public code: string;
+  private code: string;
   public listadoPaisesRegion$: Observable<PaisInterface[]>;
   public region$: Observable<RegionGeograficaContinentalInterface>;
 

@@ -1,5 +1,9 @@
-<a routerLink="/" i18n>Back</a>
-<h2 i18n>Region <span *ngIf="region$ | async as region">{{region.name}}</span> ({{code}})</h2>
+<a routerLink="/" i18n>Back to list of geographic regions</a>
+<div *ngIf="region$ | async as region">
+  <h2 i18n>Region {{region.name}}</h2>
+  <p i18n>Code: {{region.code}}</p>
+  <p i18n>ISO 2 Code: {{region.iso2code}}</p>
+</div>
 <h3 i18n>Countries:</h3>
 <ul *ngIf="listadoPaisesRegion$ | async as listadoPaises">
   <li *ngFor="let pais of listadoPaises">

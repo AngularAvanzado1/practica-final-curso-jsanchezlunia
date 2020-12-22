@@ -34,9 +34,9 @@
           <context context-type="linenumber">8</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="cda31dbd724cf5f4fa7a4274d9120651490c8a8c" datatype="html">
-        <source>Back</source>
-        <target>Volver</target>
+      <trans-unit id="bde89d5a57a433274360bb90bfc738ea494e5566" datatype="html">
+        <source>Back to list of geographic regions</source>
+        <target>Volver al listado de regiones continentales</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/listado-paises-region/listado-paises-region.component.html</context>
           <context context-type="linenumber">1</context>
@@ -48,6 +48,14 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/listado-paises-region/listado-paises-region.component.html</context>
           <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="47e944465218299f76b02bba514117b3578d643c" datatype="html">
+        <source>ISO 2 Code: <x id="INTERPOLATION" equiv-text="{{region.iso2code}}"/></source>
+        <target>Código ISO 2: <x id="INTERPOLATION" equiv-text="{{region.iso2code}}"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/listado-paises-region/listado-paises-region.component.html</context>
+          <context context-type="linenumber">5</context>
         </context-group>
       </trans-unit>
       <trans-unit id="cc636d7db99a80f962d9926c3253f9c4c2647d2b" datatype="html">
@@ -128,6 +136,14 @@
         <context-group purpose="location">
           <context context-type="sourcefile">../../libs/country/src/lib/country/country.component.html</context>
           <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="640ff93e7ac3fbffe433b8ca25f3333e9a3ea6d5" datatype="html">
+        <source>Back to continental region</source>
+        <target>Volver a la región continental</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/ficha-pais/ficha-pais.component.html</context>
+          <context context-type="linenumber">1</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5a3162e4a51b60d3c2061c3481cff0bc068f6366" datatype="html">
