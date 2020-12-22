@@ -9,7 +9,7 @@ describe('GIVEN: the explorador-continentes app', () => {
       cy.login('my-email@something.com', 'myPassword');
 
       // Function helper example, see `../support/app.po.ts` file
-      getGreeting().contains('Welcome to explorador-continentes!');
+      getGreeting().contains('Welcome to Continental geographic region explorer!');
     });
   });
 });
