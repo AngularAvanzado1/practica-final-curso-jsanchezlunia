@@ -11,13 +11,13 @@ A continuación algunas aclaraciones sobre algunos de los puntos, por si sirve d
 
 - Testing _e2e_ de página: script `e2e:explorar`.
 
-- Utilizada estrategia de detección de cambios **_OnPush_** en todos aquellos componentes donde hay cambio en alguna de sus propiedades. En este caso, coincide con aquellos componentes en los que se utiliza algún servicio para llamadas a la API.
+- Utilizada estrategia de detección de cambios **_OnPush_** en todos aquellos componentes donde hay cambio en alguna de sus propiedades. En este caso, coincide con aquellos componentes en los que se utiliza algún servicio para carga de datos mediante llamadas a la API.
 
 - Utilizado patrón _Container Presenter_:
-    - Container: _ListadoRegionesGeograficasComponent_ (componente smart con acceso a servicio de carga de datos)
+    - Container: _ListadoRegionesGeograficasComponent_ (componente smart con acceso a servicio de carga de datos de regiones)
     - Presenter: _RegionComponent_ (componente presentador dumb que recibe los datos para cada una de las regiones del listado)
     
-    - Container: _ListadoPaisesRegionComponent_ (componente smart con acceso a servicio de carga de datos)
+    - Container: _ListadoPaisesRegionComponent_ (componente smart con acceso a servicio de carga de datos de países)
     - Presenter: _ElementoListadoPaisesComponent_ (componente presentador que recibe los datos para cada uno de los países del listado)
     
 - Utilizado atributo custom mediante directivas:

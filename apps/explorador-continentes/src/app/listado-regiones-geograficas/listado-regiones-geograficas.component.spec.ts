@@ -1,47 +1,50 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {ListadoRegionesGeograficasComponent} from './listado-regiones-geograficas.component';
-import {Observable, of} from 'rxjs';
+import {Observable} from 'rxjs';
 import {RouterTestingModule} from '@angular/router/testing';
-import {RegionGeograficaContinentalService} from '@pca-jsanchez/shared/api-banco-mundial';
+import {
+  RegionGeograficaContinentalInterface,
+  RegionGeograficaContinentalService
+} from '@pca-jsanchez/shared/api-banco-mundial';
 import {RegionComponent} from '../region/region.component';
 import {RegionesModule} from '@pca-jsanchez/regiones';
-import {provideMockStore} from '@ngrx/store/testing';
-import * as RegionesActions from '../region/store/regiones/regiones.actions';
-import {Store} from '@ngrx/store';
+import {MockStore, provideMockStore} from '@ngrx/store/testing';
+import * as RegionesSelectors from '../region/store/regiones/regiones.selectors';
+import {By} from '@angular/platform-browser';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
 
 describe('GIVEN: an ListadoRegionesGeograficasComponent declared in ListadoRegionesGeograficasModule', () => {
   describe('WHEN: the ListadoRegionesGeograficasModule is compiled', () => {
     let component: ListadoRegionesGeograficasComponent;
     let fixture: ComponentFixture<ListadoRegionesGeograficasComponent>;
     let regionGeograficaContinentalService: RegionGeograficaContinentalService;
+    let store: MockStore;
+    const initialState = {
+      regiones: [],
+      region: null,
+      listadoPaises: []
+    };
 
     beforeEach(async () => {
       await TestBed.configureTestingModule({
-        imports: [RouterTestingModule, RegionesModule],
+        imports: [RouterTestingModule, RegionesModule, HttpClientTestingModule],
         declarations: [ListadoRegionesGeograficasComponent, RegionComponent],
         providers: [
-          {
+          provideMockStore({ initialState }),
+          /*{
             provide: RegionGeograficaContinentalService, useValue: {
               getRegionesGeograficasContinentales: () => of([
-                {page: "1", pages: "1", per_page: "50", total: "48"},
+                //{page: "1", pages: "1", per_page: "50", total: "48"},
                 [
-                    {id: "", code: "AFR", iso2code: "A9", name: "Africa"},
+                  //  {id: "", code: "AFR", iso2code: "A9", name: "Africa"},
                     {id: "1", code: "EAS", iso2code: "Z4", name: "East Asia & Pacific"},
                     {id: "2", code: "ECS", iso2code: "Z7", name: "Europe & Central Asia"},
                     {id: "3", code: "LCN", iso2code: "ZJ", name: "Latin America & Caribbean "}
                 ]
               ])
             }
-          },
-          {
-            provide: Store,
-            useValue: {
-              dispatch: jest.fn(),
-              pipe: jest.fn()
-            }
-          },
-          provideMockStore()
+          }*/
         ]
       })
         .compileComponents();
@@ -52,6 +55,7 @@ describe('GIVEN: an ListadoRegionesGeograficasComponent declared in ListadoRegio
       component = fixture.componentInstance;
 
       regionGeograficaContinentalService = TestBed.inject(RegionGeograficaContinentalService);
+      store = TestBed.inject(MockStore);
 
       fixture.detectChanges();
     });
@@ -65,45 +69,42 @@ describe('GIVEN: an ListadoRegionesGeograficasComponent declared in ListadoRegio
       expect(compiled.querySelector('h2').textContent).toContain('List of identified geographic regions');
     });
 
-    it('THEN: should call ngOnInit and get regions with id', () => {
-      /*let spy = spyOn(regionGeograficaContinentalService, 'getRegionesGeograficasContinentales')
+    it('THEN: should call ngOnInit and get regions with id', done => {
+
+      /*spyOn(regionGeograficaContinentalService, 'getRegionesGeograficasContinentales')
         .and
         .callThrough();*/
 
-      //component.ngOnInit();
+      RegionesSelectors.getRegionesList.setResult(
+        <RegionGeograficaContinentalInterface[]> [
+            { id: 1, code: "EAS", iso2code: "Z4", name: "East Asia & Pacific"},
+            { id: 2, code: "ECS", iso2code: "Z7", name: "Europe & Central Asia"},
+            { id: 3, code: "LCN", iso2code: "ZJ", name: "Latin America & Caribbean "}
+          ]
+      );
+
+      store.refreshState();
       fixture.detectChanges();
 
-      //expect(regionGeograficaContinentalService.getRegionesGeograficasContinentales).toHaveBeenCalled();
-      component.regiones$.subscribe(regiones => {
-        console.log('subscribe')
-        expect(regiones).toHaveLength(3);
-      });
+      // expect(regionGeograficaContinentalService.getRegionesGeograficasContinentales).toHaveBeenCalled();
 
-     /* spy.calls.mostRecent().returnValue.then(() => {
-        fixture.detectChanges();
-        console.log('spy mostRecent')
-      });*/
-
-      const action = RegionesActions.loadRegiones();
-      const store = TestBed.inject(Store);
-      let spy = jest.spyOn(store, 'dispatch');
-
-      fixture.detectChanges();
-
-   //   expect(spy).toHaveBeenCalledWith(action);
-     // console.log('toHaveBeenCalledWith')
+      expect(
+        fixture.debugElement.queryAll(By.css('pca-explorador-continentes-region')).length
+      ).toBe(3);
 
       expect(component.regiones$).toBeInstanceOf(Observable);
 
       fixture.whenStable().then(() => {
-        console.log('whenStable')
-        expect(component.regiones$).toHaveLength(3);
-        //expect(component.regiones$.filter(region => !region.id)).toHaveLength(0);
-        expect(component.regiones$).toEqual([
-          {id: "1", code: "EAS", iso2code: "Z4", name: "East Asia & Pacific"},
-          {id: "2", code: "ECS", iso2code: "Z7", name: "Europe & Central Asia"},
-          {id: "3", code: "LCN", iso2code: "ZJ", name: "Latin America & Caribbean "}
-        ]);
+        component.regiones$.subscribe(regiones => {
+          expect(regiones).toHaveLength(3);
+          expect(regiones.filter(region => !region.id)).toHaveLength(0);
+          expect(regiones).toEqual([
+            {id: 1, code: "EAS", iso2code: "Z4", name: "East Asia & Pacific"},
+            {id: 2, code: "ECS", iso2code: "Z7", name: "Europe & Central Asia"},
+            {id: 3, code: "LCN", iso2code: "ZJ", name: "Latin America & Caribbean "}
+          ]);
+          done();
+        });
       });
     });
   });
