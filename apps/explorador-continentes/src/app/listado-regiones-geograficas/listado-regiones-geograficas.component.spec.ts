@@ -31,20 +31,7 @@ describe('GIVEN: an ListadoRegionesGeograficasComponent declared in ListadoRegio
         imports: [RouterTestingModule, RegionesModule, HttpClientTestingModule],
         declarations: [ListadoRegionesGeograficasComponent, RegionComponent],
         providers: [
-          provideMockStore({ initialState }),
-          /*{
-            provide: RegionGeograficaContinentalService, useValue: {
-              getRegionesGeograficasContinentales: () => of([
-                //{page: "1", pages: "1", per_page: "50", total: "48"},
-                [
-                  //  {id: "", code: "AFR", iso2code: "A9", name: "Africa"},
-                    {id: "1", code: "EAS", iso2code: "Z4", name: "East Asia & Pacific"},
-                    {id: "2", code: "ECS", iso2code: "Z7", name: "Europe & Central Asia"},
-                    {id: "3", code: "LCN", iso2code: "ZJ", name: "Latin America & Caribbean "}
-                ]
-              ])
-            }
-          }*/
+          provideMockStore({ initialState })
         ]
       })
         .compileComponents();
@@ -70,11 +57,6 @@ describe('GIVEN: an ListadoRegionesGeograficasComponent declared in ListadoRegio
     });
 
     it('THEN: should call ngOnInit and list regions with id', done => {
-
-      /*spyOn(regionGeograficaContinentalService, 'getRegionesGeograficasContinentales')
-        .and
-        .callThrough();*/
-
       RegionesSelectors.getRegionesList.setResult(
         <RegionGeograficaContinentalInterface[]> [
             { id: 1, code: "EAS", iso2code: "Z4", name: "East Asia & Pacific"},
@@ -85,8 +67,6 @@ describe('GIVEN: an ListadoRegionesGeograficasComponent declared in ListadoRegio
 
       store.refreshState();
       fixture.detectChanges();
-
-      // expect(regionGeograficaContinentalService.getRegionesGeograficasContinentales).toHaveBeenCalled();
 
       expect(
         fixture.debugElement.queryAll(By.css('pca-explorador-continentes-region')).length

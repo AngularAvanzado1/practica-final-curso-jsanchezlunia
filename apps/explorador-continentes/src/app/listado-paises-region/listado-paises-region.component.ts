@@ -1,13 +1,8 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
 import {ActivatedRoute} from '@angular/router';
-import {
-  ListadoPaisesRegionInterface,
-  PaisInterface, RegionGeograficaContinentalInterface,
-  RegionGeograficaContinentalService
-} from '@pca-jsanchez/shared/api-banco-mundial';
+import {PaisInterface, RegionGeograficaContinentalInterface} from '@pca-jsanchez/shared/api-banco-mundial';
 import {PaisesFacade} from '../region/store/paises/paises.service';
-import {map} from 'rxjs/operators';
 import {RegionesFacade} from '../region/store/regiones/regiones.service';
 
 @Component({
@@ -17,14 +12,10 @@ import {RegionesFacade} from '../region/store/regiones/regiones.service';
   styles: []
 })
 export class ListadoPaisesRegionComponent implements OnInit {
-
   private code: string;
-  // public listadoPaisesRegion$: Observable<ListadoPaisesRegionInterface>;
   public listadoPaisesRegion$: Observable<PaisInterface[]>;
   public region$: Observable<RegionGeograficaContinentalInterface>;
-
-  constructor(//private regionGeograficaContinentalService: RegionGeograficaContinentalService,
-              private route: ActivatedRoute,
+  constructor(private route: ActivatedRoute,
               private regionesFacade: RegionesFacade,
               private paisesFacade: PaisesFacade) { }
 
@@ -36,11 +27,5 @@ export class ListadoPaisesRegionComponent implements OnInit {
 
     this.regionesFacade.loadRegion(this.code);
     this.paisesFacade.loadPaises(this.code);
-
-    // this.getRegion(this.code);
   }
-
-  /*private getRegion(code: string): void {
-    this.listadoPaisesRegion$ = this.regionGeograficaContinentalService.getPaisesRegion(code);
-  }*/
 }
