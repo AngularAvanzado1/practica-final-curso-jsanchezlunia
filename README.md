@@ -5,11 +5,11 @@
 La práctica realizada aborda todos los requisitos, tanto funcionales como no funcionales, incluyendo en los NO funcionales los requisitos tanto mínimos, como los propuestos como Plus, y Extra.
 A continuación algunas aclaraciones sobre algunos de los puntos, por si sirve de ayuda para su localización en el proyecto y su comprensión.
 
-- Testing unitario de componente en la batería de tests incluidos al lanzar el script `test:explorar`.
+- Testing unitario de componente _ListadoRegionesGeograficasComponent_ en la batería de tests incluidos al lanzar el script `test:explorar`.
 
-- Testing unitario de servicio en la batería de tests incluidos al lanzar el comando `test:api-banco-mundial`.
+- Testing unitario de servicio _RegionGeograficaContinentalService_ en la batería de tests incluidos al lanzar el script `test:api-banco-mundial`.
 
-- Testing _e2e_ de página: script `e2e:explorar`.
+- Testing _e2e_ de página: _listado-regiones-geograficas.spec.ts_, script `e2e:explorar`.
 
 - Utilizada estrategia de detección de cambios **_OnPush_** en todos aquellos componentes donde hay cambio en alguna de sus propiedades. En este caso, coincide con aquellos componentes en los que se utiliza algún servicio para carga de datos mediante llamadas a la API.
 
