@@ -30,8 +30,3 @@ A continuación algunas aclaraciones sobre algunos de los puntos, por si sirve d
     
 - Landing page _SEO friendly_ generada con **_SSR_** que muestre la lista de continentes:
     - script `start:ssr`.
-    
-## Pendiente
-
-- Revisar Redux
-- Revisar testing con Redux
