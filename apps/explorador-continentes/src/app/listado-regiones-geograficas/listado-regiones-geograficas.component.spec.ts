@@ -69,7 +69,7 @@ describe('GIVEN: an ListadoRegionesGeograficasComponent declared in ListadoRegio
       expect(compiled.querySelector('h2').textContent).toContain('List of identified geographic regions');
     });
 
-    it('THEN: should call ngOnInit and get regions with id', done => {
+    it('THEN: should call ngOnInit and list regions with id', done => {
 
       /*spyOn(regionGeograficaContinentalService, 'getRegionesGeograficasContinentales')
         .and

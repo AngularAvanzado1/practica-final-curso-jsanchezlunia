@@ -7,7 +7,7 @@ A continuación algunas aclaraciones sobre algunos de los puntos, por si sirve d
 
 - Testing unitario de componente en la batería de tests incluidos al lanzar el script `test:explorar`.
 
-- Testing unitario de servicio en la batería de tests incluidos al lanzar el script `test:api-banco-mundial`.
+- Testing unitario de servicio en la batería de tests incluidos al lanzar el comando `test:api-banco-mundial`.
 
 - Testing _e2e_ de página: script `e2e:explorar`.
 
