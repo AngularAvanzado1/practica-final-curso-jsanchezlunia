@@ -116,10 +116,18 @@
       </trans-unit>
       <trans-unit id="0b685a712476e61cbf87d6b2c88a94f92ad41557" datatype="html">
         <source>Admin Region: <x id="INTERPOLATION" equiv-text="{{country.adminregion | json}}"/></source>
-        <target>Region de administración: <x id="INTERPOLATION" equiv-text="{{country.adminregion | json}}"/></target>
+        <target>Región de administración: <x id="INTERPOLATION" equiv-text="{{country.adminregion | json}}"/></target>
         <context-group purpose="location">
           <context context-type="sourcefile">../../libs/country/src/lib/country/country.component.html</context>
           <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="194aa790322e4f1c5dffd940275577f8b28452a5" datatype="html">
+        <source>Region: <x id="INTERPOLATION" equiv-text="{{country.region | json}}"/></source>
+        <target>Región: <x id="INTERPOLATION" equiv-text="{{country.region | json}}"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../../libs/country/src/lib/country/country.component.html</context>
+          <context context-type="linenumber">9</context>
         </context-group>
       </trans-unit>
       <trans-unit id="324176348246655787c433b63f52962eb9a7d56b" datatype="html">

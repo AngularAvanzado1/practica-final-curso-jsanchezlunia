@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {ListadoPaisesRegionInterface, PaisInterface} from '@pca-jsanchez/shared/api-banco-mundial';
+import {PaisInterface} from '@pca-jsanchez/shared/api-banco-mundial';
 import {Store} from '@ngrx/store';
 import * as PaisesActions from '../regiones/regiones.actions';
 import * as PaisesSelectors from '../regiones/regiones.selectors';

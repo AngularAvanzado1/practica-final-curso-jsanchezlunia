@@ -10,8 +10,11 @@ import {RegionGeograficaContinentalInterface} from './region-geografica-continen
   providedIn: 'root'
 })
 export class RegionGeograficaContinentalService {
+
   private apiUrl = 'http://api.worldbank.org/v2'
+
   constructor(private httpClient: HttpClient) { }
+
   public getRegionesGeograficasContinentales(): Observable<ListadoRegionesGeograficasInterface> {
     return this.httpClient.get<ListadoRegionesGeograficasInterface>(this.apiUrl + '/region/?format=json')
       .pipe(map(listadoRegiones => {

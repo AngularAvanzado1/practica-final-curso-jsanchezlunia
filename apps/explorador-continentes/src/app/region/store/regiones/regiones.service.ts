@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {State, Store} from '@ngrx/store';
+import {Store} from '@ngrx/store';
 import * as RegionesActions from './regiones.actions';
 import * as RegionesSelectors from './regiones.selectors';
 import {RegionGeograficaContinentalInterface} from '@pca-jsanchez/shared/api-banco-mundial';
@@ -10,8 +10,7 @@ import {Observable} from 'rxjs';
 })
 export class RegionesFacade {
 
-  constructor(private store: Store<RegionGeograficaContinentalInterface>,
-              private state: State<any>) { }
+  constructor(private store: Store<RegionGeograficaContinentalInterface>) { }
 
   public loadRegiones() {
     this.store.dispatch(RegionesActions.loadRegiones());
@@ -19,10 +18,6 @@ export class RegionesFacade {
 
   public getRegionesList$(): Observable<RegionGeograficaContinentalInterface[]> {
     return this.store.select(RegionesSelectors.getRegionesList);
-  }
-
-  public getRegionCode() {
-    return this.state.getValue().regiones.region.code;
   }
 
   public loadRegion(code: string) {

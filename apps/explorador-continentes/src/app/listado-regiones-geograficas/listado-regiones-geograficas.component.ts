@@ -27,7 +27,6 @@ export class ListadoRegionesGeograficasComponent implements OnInit {
   }
 
   private loadData(): void {
-
     this.regionesFacade.loadRegiones();
 
     /*this.regionGeograficaContinentalService.getRegionesGeograficasContinentales()

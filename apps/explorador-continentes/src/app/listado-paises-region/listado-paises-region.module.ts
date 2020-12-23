@@ -8,15 +8,15 @@ import {RegionesModule} from '../../../../../libs/regiones/src';
 
 @NgModule({
   declarations: [ListadoPaisesRegionComponent, ElementoListadoPaisesComponent],
-    imports: [
-        CommonModule,
-        RouterModule.forChild([
-            {
-                path: '',
-                component: ListadoPaisesRegionComponent
-            }
-        ]),
-        RegionesModule
-    ]
+  imports: [
+      CommonModule,
+      RouterModule.forChild([
+          {
+              path: '',
+              component: ListadoPaisesRegionComponent
+          }
+      ]),
+      RegionesModule
+  ]
 })
 export class ListadoPaisesRegionModule { }

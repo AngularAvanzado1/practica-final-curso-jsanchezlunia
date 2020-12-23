@@ -1,9 +1,10 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ListadoPaisesRegionComponent } from './listado-paises-region.component';
-import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {ListadoPaisesRegionComponent} from './listado-paises-region.component';
 import {RouterTestingModule} from '@angular/router/testing';
 import {provideMockStore} from '@ngrx/store/testing';
+import {RegionesModule} from '@pca-jsanchez/regiones';
+import {ElementoListadoPaisesComponent} from './elemento-listado-paises/elemento-listado-paises.component';
 
 describe('ListadoPaisesRegionComponent', () => {
   let component: ListadoPaisesRegionComponent;
@@ -11,8 +12,8 @@ describe('ListadoPaisesRegionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ListadoPaisesRegionComponent ],
-      imports: [RouterTestingModule, HttpClientTestingModule],
+      imports: [RouterTestingModule, RegionesModule],
+      declarations: [ ListadoPaisesRegionComponent, ElementoListadoPaisesComponent ],
       providers: [
         provideMockStore()
       ]

@@ -7,7 +7,7 @@ import {
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
 import {Observable} from 'rxjs';
 
-describe('GIVEN: a RegionGeograficaContinentalService', () => {
+describe('GIVEN: a service for de API HTTP requests, RegionGeograficaContinentalService', () => {
   describe('WHEN: the ApiBancoMundialModule is compiled', () => {
     let service: RegionGeograficaContinentalService;
 

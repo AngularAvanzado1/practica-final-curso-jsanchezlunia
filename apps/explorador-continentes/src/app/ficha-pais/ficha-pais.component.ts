@@ -1,7 +1,6 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {RegionesFacade} from '../region/store/regiones/regiones.service';
-import {Observable} from 'rxjs';
 
 @Component({
   selector: 'pca-explorador-continentes-ficha-pais',
@@ -12,14 +11,15 @@ import {Observable} from 'rxjs';
 export class FichaPaisComponent implements OnInit {
 
   public countryId: string;
-  public regionCode: Observable<string>;
+  private regionCode: string;
 
   constructor(private route: ActivatedRoute,
               private regionesFacade: RegionesFacade) { }
 
   ngOnInit(): void {
     this.countryId = this.route.snapshot.paramMap.get('id');
-    this.regionCode = this.regionesFacade.getRegionCode();
+    this.regionesFacade.getRegion$()
+      .subscribe(region => this.regionCode = region.code);
   }
 
   public getBackUrl(): string {

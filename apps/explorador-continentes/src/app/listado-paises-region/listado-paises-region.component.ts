@@ -14,27 +14,30 @@ import {RegionesFacade} from '../region/store/regiones/regiones.service';
   selector: 'pca-explorador-continentes-listado-paises-region',
   templateUrl: './listado-paises-region.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  styles: [
-  ]
+  styles: []
 })
 export class ListadoPaisesRegionComponent implements OnInit {
 
   private code: string;
+  // public listadoPaisesRegion$: Observable<ListadoPaisesRegionInterface>;
   public listadoPaisesRegion$: Observable<PaisInterface[]>;
   public region$: Observable<RegionGeograficaContinentalInterface>;
 
-  constructor(/*private regionGeograficaContinentalService: RegionGeograficaContinentalService,*/
+  constructor(//private regionGeograficaContinentalService: RegionGeograficaContinentalService,
               private route: ActivatedRoute,
               private regionesFacade: RegionesFacade,
               private paisesFacade: PaisesFacade) { }
 
   ngOnInit(): void {
     this.code = this.route.snapshot.paramMap.get('code')
-    this.listadoPaisesRegion$ = this.paisesFacade.getListadoPaises$();
+
     this.region$ = this.regionesFacade.getRegion$();
-    //this.getRegion(this.code);
+    this.listadoPaisesRegion$ = this.paisesFacade.getListadoPaises$();
+
     this.regionesFacade.loadRegion(this.code);
     this.paisesFacade.loadPaises(this.code);
+
+    // this.getRegion(this.code);
   }
 
   /*private getRegion(code: string): void {
