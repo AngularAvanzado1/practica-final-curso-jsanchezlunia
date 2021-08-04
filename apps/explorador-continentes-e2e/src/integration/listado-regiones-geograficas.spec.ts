@@ -18,7 +18,7 @@ describe('GIVEN: the home page', () => {
     it('THEN: should display title', () => {
       getTitle().contains('List of identified geographic regions');
     });
-    it('THEN: should list regiones', () => {
+    it('THEN: should list regions', () => {
       getListadoRegiones().should('have.length', 3);
     });
   });
